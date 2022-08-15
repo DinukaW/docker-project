@@ -1,0 +1,21 @@
+version: '3'
+services: 
+  web-server:
+    container_name: nginx-server
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    links:
+      - web-app
+    ports:
+      - 80:80
+  web-app:
+    container_name: hello-world
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    expose:
+      - 9000
+    
+
+    
