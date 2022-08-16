@@ -14,8 +14,15 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
+    links:
+      - database
     expose:
       - 9000
-    
-
+  database:
+    container_name: mysql
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    expose:
+      - 3306
     
